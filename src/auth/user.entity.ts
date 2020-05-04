@@ -19,25 +19,25 @@ export class User extends BaseEntity {
   email: string;
 
   @Column()
-  gender: boolean;
+  gender: string;
 
   @Column()
-  dob: Date;
+  dob: string;
 
   @Column()
   avatar:string;
 
   @Column()
-  is_active: boolean;
+  is_active: string;
 
   @Column()
-  created_at: Date;
+  created_at: string;
 
   @Column()
   created_by: string;
 
   @Column()
-  leaveTime: number;
+  leaveTime: string;
 
   @Column()
   position:string;

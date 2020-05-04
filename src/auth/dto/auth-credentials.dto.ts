@@ -1,4 +1,4 @@
-import { IsString, MinLength, MaxLength, Matches } from "class-validator";
+import { IsString, MinLength, MaxLength, Matches, IsBoolean, IsNumber } from "class-validator";
 
 export class AuthCredentialsDto {
   @IsString()
@@ -10,9 +10,40 @@ export class AuthCredentialsDto {
   @MinLength(8)
   @MaxLength(20)
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-    {message:'Password is weak'}
+    { message: 'Password is weak' }
   )
   //Biểu thức chính quy
   //https://gist.github.com/arielweinberger/18a29bfa17072444d45adaeeb8e92ddc
   password: string;
+
+  @IsString()
+  salt: string;
+
+  @IsString()
+  email: string;
+
+  @IsString()
+  gender: string;
+
+  @IsString()
+  dob: string;
+
+  @IsString()
+  avatar: string;
+
+  @IsString()
+  is_active: string;
+
+  @IsString()
+  created_at: string;
+
+  @IsString()
+  created_by: string;
+
+  @IsString()
+  leaveTime: string;
+
+  @IsString()
+  position: string;
+
 }

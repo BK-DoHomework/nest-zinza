@@ -14,7 +14,7 @@ export class UserRepository extends Repository<User>{
     user.username = username;
     user.salt = salt;
     user.password = await this.hashPassword(password, user.salt);
-    console.log('usePassword',user.password)
+    // console.log('usePassword',user.password)
     user.email = email;
     user.gender = gender;
     user.dob = dob;

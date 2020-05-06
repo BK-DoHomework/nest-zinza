@@ -8,8 +8,16 @@ export class Check extends BaseEntity {
   id: number;
 
   @Column()
-  timeIn:string;
+  timeIn: string;
 
   @Column()
-  timeOut:string;
+  timeOut: string;
+
+
+
+  @ManyToOne(type => User, user => user.checks, { eager: false })
+  user: User;
+
+  // @Column()
+  // userId: number;
 }

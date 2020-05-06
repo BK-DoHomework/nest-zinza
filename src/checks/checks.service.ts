@@ -4,6 +4,7 @@ import { CheckRepository } from './check.repository';
 import { Check } from './check.entity';
 import { CreateCheckDto } from './dto/create-check.dto';
 import { GetChecksFilterDto } from './dto/get-checks-filter.dto';
+import { User } from 'src/auth/user.entity';
 
 @Injectable()
 export class ChecksService {
@@ -12,11 +13,14 @@ export class ChecksService {
     private checkRepository: CheckRepository,
   ) { }
 
-  async createCheck(createCheckDto: CreateCheckDto): Promise<Check> {
-    return this.checkRepository.createCheck(createCheckDto);
+  async createCheck(
+    createCheckDto: CreateCheckDto,
+    user: User
+  ): Promise<Check> {
+    return this.checkRepository.createCheck(createCheckDto, user);
   }
 
-  async getChecks(filterDto:GetChecksFilterDto):Promise<Check[]>{
+  async getChecks(filterDto: GetChecksFilterDto): Promise<Check[]> {
     return this.checkRepository.getChecks(filterDto);
   }
 

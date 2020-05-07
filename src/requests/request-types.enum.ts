@@ -1,0 +1,5 @@
+export enum RequestType {
+  LONG_TERM_LEAVE = 'LONG_TERM_LEAVE',
+  SHORT_TERM_LEAVE = 'SHORT_TERM_LEAVE',
+  OTHER = 'OTHER'
+}

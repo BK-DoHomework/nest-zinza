@@ -1,4 +1,7 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany } from "typeorm";
+import * as bcrypt from 'bcrypt';
+import { Check } from "src/checks/check.entity";
+
 
 @Entity()
 @Unique(['username']) //xử lí các vấn đề liên quan đến trùng lặp user
@@ -25,7 +28,7 @@ export class User extends BaseEntity {
   dob: string;
 
   @Column()
-  avatar:string;
+  avatar: string;
 
   @Column()
   is_active: string;
@@ -40,6 +43,14 @@ export class User extends BaseEntity {
   leaveTime: string;
 
   @Column()
-  position:string;
+  position: string;
+  //ràng buộc csdl
+  @OneToMany(type => Check, check => check.user, { eager: true })
+  checks: Check[];
+
+  async validatePassword(password: string): Promise<boolean> {
+    const hash = await bcrypt.hash(password, this.salt);
+    return hash === this.password;
+  }
 
 }

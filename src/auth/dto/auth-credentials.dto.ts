@@ -14,6 +14,7 @@ export class AuthCredentialsDto {
   )
   //Biểu thức chính quy
   //https://gist.github.com/arielweinberger/18a29bfa17072444d45adaeeb8e92ddc
+  //tạm thời em cứ để string hết -->sẽ điều chỉnh cho phù hợp
   password: string;
 
   @IsString()
